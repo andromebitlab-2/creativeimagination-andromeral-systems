@@ -97,7 +97,8 @@ export class SafeHtmlPipe implements PipeTransform {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostDetailComponent implements OnInit {
-  private route = inject(ActivatedRoute);
+  // FIX: Added explicit type for route to resolve 'unknown' type error.
+  private route: ActivatedRoute = inject(ActivatedRoute);
   private supabase = inject(SupabaseService);
   
   post = signal<Post | null>(null);

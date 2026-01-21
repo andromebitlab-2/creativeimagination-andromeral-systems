@@ -52,8 +52,10 @@ import { SupabaseService } from '../../services/supabase.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreatePostComponent {
-  private fb = inject(FormBuilder);
-  private router = inject(Router);
+  // FIX: Added explicit type for FormBuilder to resolve 'unknown' type error.
+  private fb: FormBuilder = inject(FormBuilder);
+  // FIX: Added explicit type for Router to resolve 'unknown' type error.
+  private router: Router = inject(Router);
   private supabase = inject(SupabaseService);
 
   loading = signal(false);
